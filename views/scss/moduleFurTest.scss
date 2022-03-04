@@ -1,0 +1,24 @@
+$width_moduleFurTest_img: 100%;
+
+.moduleFurTest-img {
+    width: $width_moduleFurTest_img;
+
+}
+
+.notice{
+    display: block;
+    width: $width_moduleFurTest_img;
+    padding: 5px 0px;
+    text-align: center;
+    color: #fff;
+    background: #000;
+    font-weight: bold;
+}
+
+.furArea
+    ul{
+        li{
+            padding-bottom: 10px;
+        }
+    }
+}

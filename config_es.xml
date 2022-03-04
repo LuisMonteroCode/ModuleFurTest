@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>moduleFurTest</name>
+    <displayName><![CDATA[ModuleFurTest]]></displayName>
+    <version><![CDATA[1.2.3]]></version>
+    <description><![CDATA[Module furry test for prestashop 1.7... owo, i want bread *bit bit bittt uwu*]]></description>
+    <author><![CDATA[Luis Montero]]></author>
+    <tab><![CDATA[]]></tab>
+    <is_configurable>0</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
