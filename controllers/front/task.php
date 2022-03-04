@@ -18,7 +18,7 @@ class ModuleFurTestTaskModuleFrontController extends ModuleFrontController
 
         $this->context->smarty->assign([
             'nb_product' => Db::getInstance()->getValue('SELECT count(*) FROM ' . _DB_PREFIX_ . 'product'),
-            'categories' => Db::getInstance()->executeS('SELECT name FROM '. _DB_PREFIX_ .'category_lang WHERE id_lang = ' . (int)$this->context->language->id),
+            'categories' => Db::getInstance()->executeS('SELECT id_category, name FROM '. _DB_PREFIX_ .'category_lang WHERE id_lang = ' . (int)$this->context->language->id),
             'store_name' => Configuration::get('PS_SHOP_NAME'),
             'manufacturer' => Db::getInstance()->getRow('SELECT * FROM '. _DB_PREFIX_ .'manufacturer')
         ]);
