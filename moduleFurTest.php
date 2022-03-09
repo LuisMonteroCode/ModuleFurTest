@@ -21,6 +21,8 @@ class ModuleFurTest extends Module
 
     public function install()
     {
+        include_once($this->local_path . 'sql/install.php');
+
         return parent::install() && 
             $this->registerHook("displayHome") &&
             $this->registerHook('header') && 
@@ -30,6 +32,8 @@ class ModuleFurTest extends Module
 
     public function uninstall()
     {
+        include_once($this->local_path . 'sql/uninstall.php');
+
         return parent::uninstall();
     }
 
@@ -70,9 +74,11 @@ class ModuleFurTest extends Module
             Configuration::updateValue('MODULEFURTEST_STR_OWO', $name);
         }   
 
+        
         // manando todo al form y al front
         $this->context->smarty->assign([
-            "MODULEFURTEST_STR_OWO" => Configuration::get("MODULEFURTEST_STR_OWO")
+            "MODULEFURTEST_STR_OWO" => Configuration::get("MODULEFURTEST_STR_OWO"),
+            "token_ordens" => $this->generanteAdminOrdenToken()
         ]);
 
         return $this->display(__FILE__, 'views/templates/admin/moduleFurTestAdminForm.tpl');
@@ -107,7 +113,7 @@ class ModuleFurTest extends Module
         return true;
     }
 
-    // getProductsByCategoryId
+    // getProductsByCategoryId - ajax
     public function getProductsByCategoryId($id_category)
     {
         $obj_cat = new Category($id_category, $this->id_lang);
@@ -120,6 +126,16 @@ class ModuleFurTest extends Module
         $html .= "</ol>";
 
         return $html;
+    }
+
+    public function generanteAdminOrdenToken()
+    {
+        $cookie = new Cookie("psAdmin");
+        $id_employee = $cookie->__get('id_employee');
+        $controller = "AdminDashboard";
+        $id_class = Tab::getIdFromClassName($controller);
+
+        return Tools::getAdminToken($controller.$id_class.$id_employee) ;
     }
 
 }

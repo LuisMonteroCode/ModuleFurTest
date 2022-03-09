@@ -11,6 +11,8 @@
                     {$MODULEFURTEST_STR_OWO}
                 </h5>
             </span>
+            <br />
+            <a href="index.php?controller=AdminOrders&token={$token_ordens} target="_blank">Ordens page</a>
             
         </div>
         <div class="panel-footer">
